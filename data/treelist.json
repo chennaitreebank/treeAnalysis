@@ -1,7 +1,1 @@
-[
-  {
-    "commonname" : "Indian Beech Tree",
-    "botanicalname":"Cassia Fistula",
-    "filename":"cassiafistula.json"
-  }
-]
+[{"commonname":"Indian Beech Tree","botanicalname":"Cassia Fistula","filename":"cassiafistula.json","$$hashKey":"object:3"},{"commonname":"Neem Tree","botanicalname":"Azadiratcha Indica","filename":"azadiratchaindica.json"}]
