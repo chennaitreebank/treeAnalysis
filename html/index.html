@@ -1,4 +1,86 @@
-<html>
-<head></head>
-<body></body>
+<!DOCTYPE html>
+<html ng-app="treeAnalysis">
+<head>
+  <title>ChennaiTreeBank Save Trees Save Everything </title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/angular.js"></script>
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/githubservice.js"></script>
+</head>
+
+<body ng-controller="githubController">
+  <div class="modal fade" id="addnewtree" tabindex="-1" role="dialog" aria-labelledby="#addnewtreearea">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="addnewtreearea">Add a New Tree</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="createFileClick()" class="container-fluid form-horizontal">
+            <div class="form-group">
+              <label for="txttreeCommonName" class="control-label col-xs-5 pull-left">Common Name : </label>
+              <div class="col-xs-7">
+                <input type="text" ng-model="commonname" class="form-control col-xs-6" id="txttreeCommonName" placeholder="Enter Common Name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="txttreeBotanicalName" class="control-label col-xs-5 pull-left">Botanical Name : </label>
+              <div class="col-xs-7">
+                <input type="text" ng-model="botanicalname" class="form-control col-xs-6" id="txttreeBotanicalName" placeholder="Enter Botanical Name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="txtuserName" class="control-label col-xs-5 pull-left">User Name : </label>
+              <div class="col-xs-7">
+                <input type="text" ng-model="username" class="form-control col-xs-6" id="txtuserName" placeholder="Enter Your Name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="txtemail" class="control-label col-xs-5 pull-left">Email Id : </label>
+              <div class="col-xs-7">
+                <input type="text" ng-model="emailid" class="form-control col-xs-6" id="txtemail" placeholder="Enter EmailId" />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" ng-click="createFileClick()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron">
+    <h1 align="center">Chennai Tree Bank</h1>
+    <h4 align="center">Save Trees Save Everything</h4>
+  </div>
+  <div class="progress">
+  </div>
+  <div class="container-fluid">
+    <div>
+      <div class="form-group">
+        <label for="cmbTrees" class="control-label col-xs-2 pull-left">Choose a Tree: </label>
+        <div class="col-xs-4">
+		<select class="form-control" ng-model="tree.filename" id="cmbTrees" ng-options="tree.commonname for tree in lstTrees">
+			<option value="">--Please Select a Tree--</option>
+		</select>
+		</div>
+        <div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" ng-show="lstTrees" data-target="#addnewtree">
+            Add New Tree
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Modal -->
+
+    </div>
+  </div>
+</body>
+
 </html>
